@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRIESTE — Italian Shoes Maison</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap');
+:root{--black:#0b0b0b;--ivory:#f4f0e8;--gold:#b9a06a;--gray:#99938b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--black);color:var(--ivory);font-family:"Noto Sans JP",sans-serif;font-weight:300}
+a{color:inherit;text-decoration:none}
+header{position:absolute;top:0;left:0;width:100%;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:30px 5%;border-bottom:1px solid rgba(255,255,255,.15)}
+.logo{font-family:"Cormorant Garamond",serif;font-size:32px;letter-spacing:.18em}.logo small{display:block;font-family:"Noto Sans JP",sans-serif;font-size:8px;letter-spacing:.35em;margin-top:2px}
+nav{display:flex;gap:34px;font-size:11px;letter-spacing:.18em}nav a{opacity:.85;transition:.3s}nav a:hover{color:var(--gold)}
+.hero{height:100vh;min-height:700px;position:relative;display:flex;align-items:center;overflow:hidden;background:linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.48),rgba(0,0,0,.15)),radial-gradient(circle at 75% 40%,#493d34,#211d1a 30%,#0b0b0b 70%)}
+.hero-content{position:relative;z-index:2;width:90%;max-width:1250px;margin:auto}.eyebrow{color:var(--gold);font-size:10px;letter-spacing:.4em;margin-bottom:25px}
+.hero h1{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:clamp(70px,11vw,155px);line-height:.8;letter-spacing:.06em}.hero h1 span{display:block;margin-left:12%}
+.hero-copy{margin-top:55px;max-width:440px;color:#c8c3ba;line-height:2;font-size:13px}.hero-year{position:absolute;right:5%;bottom:8%;writing-mode:vertical-rl;font-family:"Cormorant Garamond",serif;font-size:14px;letter-spacing:.35em;color:var(--gold)}
+.section{padding:130px 7%}.section-label{font-size:9px;letter-spacing:.35em;color:var(--gold);margin-bottom:25px}.section-title{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:clamp(42px,6vw,80px);letter-spacing:.05em}
+.heritage{background:var(--ivory);color:var(--black);display:grid;grid-template-columns:1fr 1fr;gap:10%;align-items:center}.heritage-text p{margin-top:35px;max-width:520px;font-size:14px;line-height:2.4;color:#4d4a45}
+.history{margin-top:45px;border-top:1px solid #bcb6aa}.history-row{display:flex;gap:30px;padding:18px 0;border-bottom:1px solid #d0cbc1;font-size:11px}.history-row strong{font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:400}
+.heritage-visual{
+    min-height:600px;
+    background:linear-gradient(145deg,rgba(0,0,0,.1),rgba(0,0,0,.65)),
+    radial-gradient(circle at 55% 30%,#8d7b68,#302a25 45%,#111 80%);
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.heritage-visual img{
+    width:60%;
+    max-width:420px;
+    height:auto;
+    opacity:.35;
+}
+
+.collection{background:#0f0f0f}.collection-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:60px}.collection-head p{color:#8d8982;font-size:12px;letter-spacing:.1em}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}.product{background:#171717;min-height:520px;position:relative;overflow:hidden}
+.product-image{
+    height:390px;
+    background:#171717;
+    position:relative;
+    overflow:hidden;
+}
+
+.product-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.product-info{padding:25px}.product-number{color:var(--gold);font-size:9px;letter-spacing:.25em}.product-name{font-family:"Cormorant Garamond",serif;font-size:28px;margin:8px 0}.product-description{color:#777;font-size:10px;line-height:1.8}
+.collab{min-height:800px;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(90deg,rgba(8,8,8,.95),rgba(48, 8, 18, 0.75),rgba(8,8,8,.8))}.collab::before{content:"TRIGGER";position:absolute;font-family:"Cormorant Garamond",serif;font-size:22vw;white-space:nowrap;color:rgba(255,255,255,.025);left:-3%;bottom:-3%}.collab-content{position:relative;z-index:2;width:86%;max-width:1200px;margin:auto}.collab-title{font-family:"Cormorant Garamond",serif;font-size:clamp(55px,9vw,120px);font-weight:300;line-height:.85}.collab-title span{color:#a52d35}.collab-sub{margin-top:35px;font-size:12px;letter-spacing:.25em;color:#c0b9b0}.collab-description{max-width:520px;margin-top:40px;color:#99938b;font-size:13px;line-height:2.3}
+.characters{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    min-height:500px;
+    background:#111;
+}
+.character{
+    padding:80px 10%;
+    display:flex;
+    flex-direction:column;
+    justify-content:end;
+    position:relative;
+    overflow:hidden;}
+
+.character:nth-child(1){
+    background:
+        radial-gradient(circle at 50% 50%, rgba(184,137,168,.65), transparent 70%),
+        #171717;
+}
+.character:nth-child(2){
+    background:
+        radial-gradient(circle at 50% 50%, rgba(230,230,230,.55), transparent 70%),
+        #171717;
+}
+.character:nth-child(3){
+    background:
+        radial-gradient(circle at 50% 50%, rgba(61,120,168,.65), transparent 70%),
+        #171717;
+}
+
+.character-name{font-family:"Cormorant Garamond",serif;font-size:55px;letter-spacing:.08em}
+
+.character-role{margin-top:8px;color:var(--gold);font-size:9px;letter-spacing:.3em}
+
+.character-copy{margin-top:25px;max-width:330px;color:#a9a49c;font-size:11px;line-height:2}
+
+.news{background:var(--ivory);color:var(--black)}.news-list{margin-top:60px;border-top:1px solid #9598a3}.news-item{display:grid;grid-template-columns:140px 1fr 100px;padding:25px 0;border-bottom:1px solid #bbb5aa;font-size:11px}.news-date{color:#777}.news-arrow{text-align:right}
+.teaser{
+    width:100%;
+    background:#080808;
+    padding:0 7% 120px;
+}
+
+.teaser img{
+    display:block;
+    width:100%;
+    max-width:1400px;
+    height:auto;
+    margin:0 auto;
+}
+
+.character-image{
+    width: 100%;
+    height: 280px ;
+    object-fit: contain;
+    display: block;
+    margin-bottom: 40px;
+}
+
+footer{background:#080808;padding:80px 7% 40px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px}.footer-logo{font-family:"Cormorant Garamond",serif;font-size:55px;letter-spacing:.12em}.footer-copy{color:#666;font-size:10px;line-height:2;margin-top:20px}.footer-column h4{font-size:9px;letter-spacing:.3em;color:var(--gold);margin-bottom:20px}.footer-column a{display:block;color:#888;font-size:11px;margin-bottom:12px}.copyright{grid-column:1/-1;padding-top:35px;border-top:1px solid #222;color:#444;font-size:9px;letter-spacing:.15em}
+@media(max-width:800px){header{padding:22px 6%}nav{display:none}.hero{min-height:750px}.hero h1{font-size:70px}.hero h1 span{margin-left:5%}.heritage{grid-template-columns:1fr;padding:90px 7%}.heritage-visual{min-height:400px}.products{grid-template-columns:1fr}.collection{padding:90px 7%}.collection-head{display:block}.collection-head p{margin-top:20px}.characters{grid-template-columns:1fr}.character{min-height:430px}.news-item{grid-template-columns:80px 1fr 30px}footer{grid-template-columns:1fr}.copyright{grid-column:1}
+.teaser{padding: 0  6%  80px;} .character-image{height: 240px; margin-bottom: 30px;}}
+
+
+</style>
+</head>
+<body>
+<header>
+<a href="#" class="logo">TRIESTE<small>ITALIAN SHOES MAISON</small></a>
+<nav><a href="#heritage">HERITAGE</a><a href="#collection">COLLECTION</a><a href="#collaboration">COLLABORATION</a><a href="#news">NEWS</a><a href="#shop">SHOP</a></nav>
+</header>
+
+<section class="hero">
+<div class="hero-content">
+<div class="eyebrow">SINCE 1926 · TRIESTE · ITALIA</div>
+<h1>It'll<br>always<br>be my<br>treasure</span></h1>
+<p class="hero-copy">海と大陸のあいだで生まれたTRIESTE
+<br>100年続いたこの地から、
+<br>次に続く100年へー</p>
+</div>
+<div class="hero-year">SINCE  1926 · TRIESTE</div>
+</section>
+
+<section class="section heritage" id="heritage">
+<div class="heritage-text">
+<div class="section-label">OUR HERITAGE</div>
+<h2 class="section-title">History<br>of TRIESTE</h2>
+<p>　1926年、アドリア海に面したイタリア北東部の港町、トリエステでTRIESTEは始まりました。</p>
+<p>　かつてオーストリア＝ハンガリー帝国の主要港として発展したこの街には、イタリア、オーストリア、スラヴの文化が交差する独自の美意識が息づいています。</p>
+<div class="history">
+<div class="history-row"><strong>1926</strong>
+                <span>"ジョヴァンニ・リナルディ"によってイタリア・トリエステに小さな靴工房を創業<br> 職人の手仕事による革靴づくりを始める</span>
+            </div>
+
+            <div class="history-row">
+                <strong>1967</strong>
+                <span>創業者から子へ。"ロレンツォ・リナルディ"へ職人の技は受け継がれる<br>
+                    靴作りの技術と美意識をさらに育み、新たな時代を切り開く</span>
+            </div>
+
+            <div class="history-row">
+                <strong>1986</strong>
+                <span>伝統的な職人技を守りながら、現代の女性のためのエレガントなシューズを展開
+                    <br>そして、"ベアトリーチェ・リナルディ"と共に新たなブランド作りへと舵を切る</span>
+            </div>
+
+            <div class="history-row">
+                <strong>2026</strong>
+                <span>一世紀にわたり受け継がれてきたクラフツマンシップは次の時代へ<br>
+                    日本を代表するトップアイドル・TRIGGERをブランドミューズに迎える</span></div>
+</div>
+</div>
+<div class="heritage-visual">
+    <img src="images/logo.png" alt="TRIESTE">
+
+</div>
+</section>
+
+<section class="section collection" id="collection">
+<div class="collection-head"><div><div class="section-label">COLLECTION 2026</div><h2 class="section-title">SIGNATURE</h2></div><p>HANDCRAFTED IN ITALY</p></div>
+<div class="products">
+<article class="product"><div class="product-image">
+    <img src="images/tenn.png" alt="TENN signature shoes">
+</div><div class="product-info"><div class="product-number">01 / 03
+
+</div><div class="product-name">
+                    TENN
+                </div>
+
+                <p class="product-description">
+                    洗練されたエレガンス漂うパンプス<br>
+                    働くすべての女性のために生まれた、TRIESTEを象徴する一足
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="product">
+
+            <div class="product-image">
+    <img src="images/gaku.png" alt="GAKU signature shoes">
+</div>
+
+            <div class="product-info">
+
+                <div class="product-number">
+                    02 / 03
+                </div>
+
+                <div class="product-name">
+                    GAKU
+                </div>
+
+                <p class="product-description">
+                    白色の柔らかなレザーで作られたショートブーツ<br>
+                    美しいシルエットと細身のハイヒールが特徴です
+                    
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="product">
+
+            <div class="product-image">
+    <img src="images/ryu.png" alt="RYU signature shoes">
+</div>
+
+            <div class="product-info">
+
+                <div class="product-number">
+                    03 / 03
+                </div>
+
+                <div class="product-name">
+                    RYU
+                </div>
+
+                <p class="product-description">
+                    軽快に動ける自由さが詰め込まれたローファースリッパ
+                    <br>アドリア海のような深い青色は新たな時代の幕開けを思わせます
+                </p>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+<section class="collab" id="collaboration">
+<div class="collab-content">
+<div class="section-label">SPECIAL COLLABORATION · 2026</div>
+<h2 class="collab-title">TRIESTE<br><span>×</span> TRIGGER</h2>
+<div class="collab-sub">THREE MEN. THREE PAIRS. ONE STAGE.</div>
+<p class="collab-description">TRIGGERのステージから生まれる光と、TRIESTEが積み重ねてきた革靴の伝統。<br><br>それぞれの個性を、一足の靴というひとつのフォルムへ。<br><br>2026年、限定コレクションとして登場。</p>
+</div>
+</section>
+
+<section class="teaser">
+    <img src="images/teaser.png" alt="TRIESTE × TRIGGER Limited Collection">
+</section>
+
+<section class="characters">
+    <article class="character">
+        <img class="character-image" src="images/m_tenn.png" alt="TENN signature model">
+        <div class="character-name">TENN</div>
+        <div class="character-role">九条 天 · SIGNATURE MODEL</div>
+        <p class="character-copy">
+            モデル紹介文
+            <br><br>
+            ああああ
+        </p>
+    </article>
+
+    <article class="character">
+        <img class="character-image" src="images/m_gaku.png" alt="GAKU signature model">
+        <div class="character-name">GAKU</div>
+        <div class="character-role">八乙女 楽 · SIGNATURE MODEL</div>
+        <p class="character-copy">
+            モデル紹介文
+            <br><br>
+            誰よりも白く洗練された美しさ。
+        </p>
+    </article>
+
+    <article class="character">
+        <img class="character-image" src="images/m_ryu.png" alt="RYU signature model">
+        <div class="character-name">RYU</div>
+        <div class="character-role">十 龍之介 · SIGNATURE MODEL</div>
+        <p class="character-copy">
+            モデル紹介文
+            <br><br>
+            ああああ
+        </p>
+    </article>
+</section>
+
+<section class="section news" id="news">
+<div class="section-label">NEWS</div><h2 class="section-title">LATEST STORIES</h2>
+<div class="news-list">
+<div class="news-item"><span class="news-date">2026.09.01</span><span>TRIESTE × TRIGGER Limited Collection</span><span class="news-arrow">→</span></div>
+<div class="news-item"><span class="news-date">2026.08.20</span><span>Behind the Craft — The Art of Italian Shoemaking</span><span class="news-arrow">→</span></div>
+<div class="news-item"><span class="news-date">2026.07.12</span><span>TRIESTE Heritage Exhibition in Tokyo</span><span class="news-arrow">→</span></div>
+</div>
+</section>
+
+<footer id="shop">
+<div><div class="footer-logo">TRIESTE</div><p class="footer-copy">ITALIAN SHOES Maison<br>TRIESTE · 1926</p></div>
+<div class="footer-column"><h4>EXPLORE</h4><a href="#heritage">Heritage</a><a href="#collection">Collection</a><a href="#collaboration">Collaboration</a><a href="#news">News</a></div>
+<div class="footer-column"><h4>CONTACT</h4><a href="#">Flagship Store</a><a href="#">Client Services</a><a href="#">Instagram</a><a href="#">Newsletter</a></div>
+<div class="copyright">© 2026 TRIESTE · ALL RIGHTS RESERVED</div>
+</footer>
+</body>
+</html>
